@@ -14,7 +14,7 @@
   <div class="container">
     <div ng-controller="StudentsCtrl">
       <div class="row" ng-show="students.length">
-        <div class="col-md-12">
+        <div class="col-md-6" align="center">
           <h4>Search Students</h4>
           <form class="form-inline" role="form">
             <div class="form-group">
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <h2 ng-show="students.length && filtered.length">Student List</h2>
           <h2 ng-show="students.length && !filtered.length">No Matches</h2>
           <ul>
@@ -55,19 +55,19 @@
     </div>
 
       <div class="row" ng-controller="FieldTripsCtrl">
-        <div class="col-md-12" ng-show="studentsWithoutPermission.length">
-          <h3>Without Permission Slips</h3>
+        <div class="col-md-6" ng-show="studentsWithoutPermission.length">
+          <h3>Not Checked in</h3>
           <ul>
             <li ng-repeat="item in studentsWithoutPermission = (students | filter:{permissionSlip: false})">
-              {{item.name}} <a ng-click="addStudentWithPermissionSlip(item)"> - received permission slip -</a>
+              {{item.name}} <a ng-click="addStudentWithPermissionSlip(item)"> Sign in</a>
             </li>
           </ul>
         </div>
-        <div class="col-md-12" ng-show="studentsWithPermission.length">
-          <h3>With Permission Slips</h3>
+        <div class="col-md-6" ng-show="studentsWithPermission.length">
+          <h3>Checked in</h3>
           <ul>
             <li ng-repeat="item in studentsWithPermission = (students | filter:{permissionSlip: true})">
-              {{item.name}}
+              {{item.name}} <a ng-click="addStudentWithPermissionSlip(item)"> Sign out</a>
             </li>
           </ul>
         </div>
