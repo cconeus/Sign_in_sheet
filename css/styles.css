@@ -1,0 +1,10 @@
+.box-style {
+    border: solid black 1px;
+    background-color: #F5FAFF;
+    height: 80px;
+    width: 200px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 9px;
+}
