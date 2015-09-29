@@ -1,44 +1,21 @@
 <!doctype html>
-<html lang="en" ng-app="studentRoster">
+<html lang="en" ng-app="signInSheet">
 <head>
   <meta charset="UTF-8">
   <title>Student Sign In App</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
   <script src="app.js"></script>
   <script src="controllers/StudentsController.js"></script>
-  <script src="controllers/FieldTripsController.js"></script>
+  <script src="controllers/SignInController.js"></script>
   <script src="services/StudentsFactory.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" media="screen" title="no title" charset="utf-8" type="text/css">
   <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
   <div class="container">
-    <div ng-controller="StudentsCtrl">
-      <div class="row">
-          <div class="col-md-6">
-          <h3>Add a student to your class:</h3>
-          <form ng-submit="StudentsFactory.addStudent()" class="form-inline" role="form">
-            <div class="form-group">
-              <input type="text" ng-model="StudentsFactory.studentName" class="form-control" id="student-name" placeholder="Enter name">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
-      <div class="row" ng-controller="SignInCtrl">
-        <div class="col-md-6" ng-show="studentsWithoutPermission.length">
-          <h3>Not Checked in</h3>
-                <div class="box-style" ng-repeat="item in studentsWithoutPermission = (students | filter:{signedIn: false})"><h4>{{item.name}} <br> <button ng-click="addSignedIn(item)" class="btn btn-success btn-sm"> Sign in</button>
-                </div>
-        </div>
-        <div class="col-md-6" ng-show="studentsWithPermission.length">
-          <h3>Checked in</h3>
-            <div class="box-style" ng-repeat="item in studentsWithPermission = (students | filter:{signedIn: true})">
-              {{item.name}} <br> <button class="btn btn-warning btn-sm" ng-click="{signedIn: false}"> Sign out</button>
-            </div>
-        </div>
-      </div>
+    <div ui-view></div>
   </div>
 </body>
 </html>

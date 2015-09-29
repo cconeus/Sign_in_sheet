@@ -1,0 +1,8 @@
+<div ng-controller="StudentsCtrl">
+  <a ui-sref="home">Home</a> | <a ui-sref="whosHere">Who's Here</a>
+  <div ng-show="signedInStudents.length" class="home-style">
+    <h2>Checked in:</h2>
+    <div ng-repeat="item in signedInStudents = (students | filter:{signedIn: true})">
+        <h4>{{item.name}}</h4>
+    </div>
+  </div>
