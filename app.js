@@ -7,12 +7,12 @@ signInSheet.config(function($stateProvider, $urlRouterProvider) {
   });
 
   $stateProvider.state('signInSheet', {
-    url: "",
+    url: "/sign-in",
     templateUrl: "partials/signInSheet.html"
   });
 
   $stateProvider.state('whosHere', {
-    url: "",
+    url: "/roster",
     templateUrl: "partials/whosHere.html"
   });
 });

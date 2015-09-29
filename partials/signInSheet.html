@@ -13,7 +13,10 @@
 <div class="row" ng-controller="SignInCtrl" align="center">
   <div ng-show="notCheckedIn.length">
     <h3>Please Sign In Below</h3>
-      <div class="box-style" ng-repeat="item in notCheckedIn = (students )"><h4>{{item.name}} <br> <button ng-click="addSignedIn(item)" class="btn btn-success btn-sm"> Sign in</button>
+      <div class="box-style" ng-repeat="item in notCheckedIn = (students)">
+        <h4>{{item.name}} <br>
+          <button ng-show="!item.signedIn" ng-click="addSignedIn(item)" class="btn btn-success btn-sm"> Sign in</button>
+          <button ng-show="item.signedIn" ng-click="addSignedOut(item)" class="btn btn-warning btn-sm"> Sign out</button>
       </div>
   </div>
 </div>

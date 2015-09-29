@@ -1,6 +1,8 @@
 signInSheet.factory('StudentsFactory', function StudentsFactory() {
   var factory = {};
-  factory.students = [];
+  factory.students = [
+    { name: "John Doe", signedIn: false }
+  ];
 
   factory.addStudent = function() {
     var student = { name: factory.studentName, signedIn: false };
